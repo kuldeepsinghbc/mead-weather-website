@@ -20,8 +20,8 @@ weatherForm.addEventListener('submit', e => {
         messageOne.textContent = data.location;
         const demo = JSON.stringify(data.forecast);
         // messageTwo.textContent = demo;
-        const { description, temperature, feelslike } = data.forecast;
-        messageTwo.textContent = `${description} It is ${temperature} degrees Celcius, with a ${feelslike} % chance of rain.`;
+        const { description, temperature, feelslike, humidity } = data.forecast;
+        messageTwo.textContent = `${description}. It is ${temperature} degrees out. It feels like ${feelslike} % chance of rain. The humidity is ${humidity} %.`;
         console.log(data.forecast);
         // messageTwo.textContent = data.forecast;
       }

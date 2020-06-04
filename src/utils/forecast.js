@@ -13,23 +13,12 @@ const forecast = (latitude, longitude, callback) => {
     } else if (body.error) {
       callback('Unable to find location', undefined);
     } else {
-      callback(
-        undefined,
-        // ` ${response.body.current.weather_descriptions[0]}. It is currently ${response.body.current.temperature} degrees out. There is a ${response.body.current.precip} % chance of rain.`
-        // {
-        //   forcast:
-        //     body.current.weather_descriptions[0] +
-        //     ' It is currently ' +
-        //     body.current.temperature +
-        //     ' It feelslike' +
-        //     body.current.feelslike,
-        // }
-        {
-          description: body.current.weather_descriptions[0],
-          temperature: body.current.temperature,
-          feelslike: body.current.feelslike,
-        }
-      );
+      callback(undefined, {
+        description: body.current.weather_descriptions[0],
+        temperature: body.current.temperature,
+        feelslike: body.current.feelslike,
+        humidity: body.current.humidity,
+      });
     }
   });
 };
